@@ -1,0 +1,14 @@
+.git
+.gitignore
+.firebase
+.dockerignore
+Dockerfile*
+docker-compose*
+.editorconfig
+/node_modules
+/e2e
+/docs
+*.zip
+*.md
+.vscode
+dist/node_modules
