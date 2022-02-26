@@ -1,46 +1,46 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myangular-nginx
+  name: my-angular-k8s-devops
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myangular-nginx
+      app: my-angular-k8s-devops
   template:
     metadata:
       labels:
-        app: myangular-nginx
+        app: my-angular-k8s-devops
     spec:
       nodeSelector:
         "beta.kubernetes.io/os": linux
       containers:
-        - name: myangular-nginx
-          image: marcouellet/myangular-nginx:latest
+        - name: my-angular-k8s-devops
+          image: my-angular-k8s-devops:latest
           env:
             - name: ALLOW_EMPTY_PASSWORD
               value: "yes"
           ports:
             - containerPort: 80
-              name: myangular-nginx
+              name: my-angular-k8s-devops
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: myangular-nginx
+  name: my-angular-k8s-devops
 spec:
   ports:
     - port: 80
   selector:
-    app: myangular-nginx
+    app: my-angular-k8s-devops
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: myangular-nginx
+  name: my-angular-k8s-devops
 spec:
   type: LoadBalancer
   ports:
     - port: 80
   selector:
-    app: myangular-nginx
+    app: my-angular-k8s-devops
